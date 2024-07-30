@@ -1,0 +1,22 @@
+import tkinter as tk
+
+window = tk.Tk()
+window.title('Калькулятор')
+window.geometry("350x350")
+window.resizable(False, False)
+button_add = tk.Button(window, text="+", width=2, height=2)
+button_sub = tk.Button(window, text="-", width=2, height=2)
+button_mul = tk.Button(window, text="*", width=2, height=2)
+button_div = tk.Button(window, text="/", width=2, height=2)
+button_add.place(x=100, y=250)
+button_sub.place(x=150, y=250)
+button_mul.place(x=200, y=250)
+button_div.place(x=250, y=250)
+number1_entry = tk.Entry(window, width=30)
+number2_entry = tk.Entry(window, width=30)
+answer_entry = tk.Entry(window, width=30)
+number1_entry.place(x=100, y=75)
+number2_entry.place(x=100, y=150)
+answer_entry.place(x=100, y=250)
+
+window.mainloop()
