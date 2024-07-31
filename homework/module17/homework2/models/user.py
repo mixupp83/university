@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from homework.module17.lesson2.backend.db import Base
+from homework.module17.homework2.backend.db import Base
 
 class User(Base):
     __tablename__ = 'users'
