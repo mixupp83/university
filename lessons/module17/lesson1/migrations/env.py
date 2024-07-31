@@ -18,7 +18,10 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+from lessons.module17.lesson1.backend.db import Base
+from lessons.module17.lesson1.models.category import Category
+from lessons.module17.lesson1.models.products import Product
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

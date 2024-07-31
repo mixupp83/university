@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import category
+from lessons.module17.lesson1.routers import category, products
 
 
 app = FastAPI()
@@ -9,4 +9,5 @@ async def welcome():
     return {"message": "My shop"}
 
 app.include_router(category.router)
+app.include_router(products.router)
 
