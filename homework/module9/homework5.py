@@ -21,7 +21,6 @@ class Iterator:
         self.pointer += self.step
         return current
 
-# Пример выполнения кода
 try:
     iter1 = Iterator(100, 200, 0)
     for i in iter1:
