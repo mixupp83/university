@@ -3,7 +3,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 import crud_functions4
 
-api = "7249341772:AAHHFBW3zLzr2Aco1eN1fu9Y-C4hJ_1ZaWY"  # Замените на ваш API-токен
+api = "API-TOKEN"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -19,11 +19,9 @@ buy_inline_keyboard.add(InlineKeyboardButton('Product2', callback_data='product_
 buy_inline_keyboard.add(InlineKeyboardButton('Product3', callback_data='product_buying'))
 buy_inline_keyboard.add(InlineKeyboardButton('Product4', callback_data='product_buying'))
 
-# Инициализация базы данных
 crud_functions4.initiate_db()
 
 
-# Обработчики и функции
 @dp.message_handler(commands=['start'])
 async def start_message(message: types.Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.', reply_markup=main_keyboard)
@@ -37,7 +35,6 @@ async def get_buying_list(message: types.Message):
         title, description, price = product[1], product[2], product[3]
         image_url = f"https://example.com/image{product[0]}.jpg"  # Замените на реальные URL-адреса изображений
 
-        # Проверка доступности URL
         if image_url.startswith('http') and image_url.endswith(('.jpg', '.png', '.jpeg')):
             try:
                 await message.answer_photo(photo=image_url,

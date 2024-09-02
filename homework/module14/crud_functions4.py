@@ -39,10 +39,8 @@ def insert_product(title, description, price):
     conn.close()
 
 
-# Вызов функции initiate_db перед любыми операциями с базой данных
 initiate_db()
 
-# Пример вставки данных
 insert_product('Product1', 'Описание 1', 100)
 insert_product('Product2', 'Описание 2', 200)
 insert_product('Product3', 'Описание 3', 300)
