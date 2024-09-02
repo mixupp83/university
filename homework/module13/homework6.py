@@ -4,7 +4,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-api = "API-TOKEN"  # Ваш API-токен
+api = "API-TOKEN"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
