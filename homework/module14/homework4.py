@@ -33,7 +33,7 @@ async def get_buying_list(message: types.Message):
 
     for product in products:
         title, description, price = product[1], product[2], product[3]
-        image_url = f"https://example.com/image{product[0]}.jpg"  # Замените на реальные URL-адреса изображений
+        image_url = f"https://example.com/image{product[0]}.jpg"
 
         if image_url.startswith('http') and image_url.endswith(('.jpg', '.png', '.jpeg')):
             try:
