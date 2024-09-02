@@ -49,7 +49,6 @@ async def send_calories(message: types.Message, state: FSMContext):
         growth = data['growth']
         weight = data['weight']
 
-    # Формула Миффлина - Сан Жеора для женщин
     calories = 10 * weight + 6.25 * growth - 5 * age - 161
 
     await message.answer(f'Ваша норма калорий: {calories} ккал в день.')
