@@ -18,7 +18,6 @@ buy_inline_keyboard.add(InlineKeyboardButton('Product3', callback_data='product_
 buy_inline_keyboard.add(InlineKeyboardButton('Product4', callback_data='product_buying'))
 
 
-# Обработчики и функции
 @dp.message_handler(commands=['start'])
 async def start_message(message: types.Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.', reply_markup=main_keyboard)
