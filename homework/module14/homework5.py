@@ -5,11 +5,10 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 import crud_functions5
 
-api = "7249341772:AAHHFBW3zLzr2Aco1eN1fu9Y-C4hJ_1ZaWY"  # Замените на ваш API-токен
+api = "API-TOKEN"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
-# Создание клавиатур
 main_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 main_keyboard.add(KeyboardButton('Рассчитать'))
 main_keyboard.add(KeyboardButton('Информация'))
@@ -22,18 +21,15 @@ buy_inline_keyboard.add(InlineKeyboardButton('Product2', callback_data='product_
 buy_inline_keyboard.add(InlineKeyboardButton('Product3', callback_data='product_buying'))
 buy_inline_keyboard.add(InlineKeyboardButton('Product4', callback_data='product_buying'))
 
-# Инициализация базы данных
 crud_functions5.initiate_db()
 
 
-# Класс состояний для регистрации
 class RegistrationState(StatesGroup):
     username = State()
     email = State()
     age = State()
 
 
-# Обработчики и функции
 @dp.message_handler(commands=['start'])
 async def start_message(message: types.Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.', reply_markup=main_keyboard)
@@ -50,7 +46,6 @@ async def get_buying_list(message: types.Message):
 
         title, description, price, image_url = product[1], product[2], product[3], product[4]
 
-        # Проверка доступности URL
         if image_url.startswith('http') and image_url.endswith(('.jpg', '.png', '.jpeg')):
             try:
                 await message.answer_photo(photo=image_url,
